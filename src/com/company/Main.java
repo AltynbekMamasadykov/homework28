@@ -1,6 +1,6 @@
-package com.company;
 
-import com.company.interfaces.UnaryOperator;
+package com.company;
+import java.util.function.UnaryOperator;
 
 public class Main {
 
@@ -10,27 +10,18 @@ public class Main {
         sqrt деген метод тузунуз.
         UnaryOperator деген интерфейстин реализациясын кайтаруусу керек
         Бир санды кабыл алып анын тамырдан чыккан жообун кайтарат(корень).
-
         public static UnaryOperator<Double> sqrt().
          */
 
-        // First version without lambda
 
-        UnaryOperator unaryOperator = new UnaryOperator() {
-
-            @Override
-            public double sqrt(int x) {
-                return Math.sqrt(x);
-            }
-        };
-        System.out.println(unaryOperator.sqrt(9));
+        System.out.println(sqrt().apply(25.0));
+        System.out.println(sqrt().apply(36.0));
 
 
-        // Second version with lambda
-        UnaryOperator unaryOperator2 = x -> Math.sqrt(x);
-        UnaryOperator unaryOperator3 = Math::sqrt; //ushintip jazsa da bolot deyt intelijidea
-        System.out.println(unaryOperator2.sqrt(25));
-        System.out.println(unaryOperator3.sqrt(36));
 
     }
+    public static UnaryOperator<Double> sqrt () {
+        return Math::sqrt;
+    }
+
 }
